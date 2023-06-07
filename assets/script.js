@@ -30,12 +30,14 @@ let currentIndex = 0;
 // Fonction pour afficher la diapositive suivante
 function showNextSlide() {
   currentIndex = (currentIndex + 1) % slides.length;
+  console.log("clic sur suivant");
   updateSlide();
 }
 
 // Fonction pour afficher la diapositive précédente
 function showPreviousSlide() {
   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  console.log("clic sur précédent");
   updateSlide();
 }
 
