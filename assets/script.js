@@ -16,3 +16,39 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+// Références des éléments HTML
+const banner = document.getElementById('banner');
+const image = document.getElementById('ban-img');
+const text = document.getElementById('text');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+// Initialise l'index actuel
+let currentIndex = 0;
+
+// Fonction pour afficher la diapositive suivante
+function showNextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateSlide();
+}
+
+// Fonction pour afficher la diapositive précédente
+function showPreviousSlide() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateSlide();
+}
+
+// Fonction pour mettre à jour la diapositive en fonction de l'index actuel
+function updateSlide() {
+  const currentSlide = slides[currentIndex];
+  image.src = './assets/images/slideshow/' + currentSlide.image;
+  text.innerHTML = currentSlide.tagLine;
+}
+
+// Ajout des event listeners aux boutons précédents et suivants
+prevBtn.addEventListener('click', showPreviousSlide);
+nextBtn.addEventListener('click', showNextSlide);
+
+// Affichage de la première diapositive au chargement de la page
+updateSlide();
