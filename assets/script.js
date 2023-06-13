@@ -80,3 +80,9 @@ dot.classList.remove('dot_selected');
 // Ajout de la classe "active" au dot correspondant à l'index actuel
   dots[currentIndex].classList.add('dot_selected');
 }
+
+// chargement des slides toutes les 5s
+setInterval(()=>{
+    currentIndex = currentIndex < slides.length -1? currentIndex +1 : 0
+    updateSlide()
+}, 5000)
